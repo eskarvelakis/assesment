@@ -11,43 +11,8 @@ export class CommonPage {
     return cy.get('[data-testid="headline"]').contains(titlename);
   }
 
-  getVersionNumber() {
-    return cy.get('[data-cy="tc-version"]');
-  }
-
-  getSidePanel() {
-    return cy.get('[data-cy="sidepanel"]', { timeout: 5000 });
-  }
-
-  getExtendedSidepanel() {
-    return cy.get('[data-cy="sidepanel-extension"]');
-  }
-
-  getSidepanelContent() {
-    return cy.get('[data-cy="sidepanel-content"]', { timeout: 2000 });
-  }
-
   getSidepanelHeader() {
     return cy.get('[data-cy="sidepanel-header"]');
-  }
-
-  getPanelTitle() {
-    return cy.get('[data-cy="sidepanel-extension-header"]', {
-      timeout: 3000,
-      includeShadowDom: true,
-    });
-  }
-
-  accountName(accountname: string) {
-    return cy.get('[data-cy="username"]').contains(accountname);
-  }
-
-  roleName(rolename: string) {
-    return cy.get('[data-cy="userrole"]').contains(rolename);
-  }
-
-  getPageTitle() {
-    return cy.get("h1", { timeout: 20000 });
   }
 
   checkTable() {
@@ -142,26 +107,6 @@ export class CommonPage {
       .wait(100)
       .find('[data-testid="tag"]', { timeout: 5000 })
       .filter(':contains("' + searchoutput + '")');
-  }
-
-  getLanguage() {
-    return cy.get("#langButton", { timeout: 20000 });
-  }
-
-  chooseLanguage(chosenlang: string) {
-    return cy.get("div").contains(chosenlang);
-  }
-
-  getResetBtn() {
-    return cy.get('[data-cy="reset-button"]');
-  }
-
-  getResetTooltip() {
-    return cy.get('[data-cy="reset-tooltip"]');
-  }
-
-  getPaginationType(usecase) {
-    return cy.get('[data-cy="group-pagination"]').shadow().find(usecase);
   }
 
   getPaginationText() {
@@ -292,21 +237,5 @@ export class CommonPage {
       .get('[data-cy="sidepanel-footer"]')
       .find('[data-testid="button"]')
       .contains(buttontext);
-  }
-
-  getLoggoutTime() {
-    return cy.get('[data-cy="time-countdown"]');
-  }
-
-  getSidebarExpandIcon() {
-    return cy.get('[data-cy="sidebar-expand-icon"]');
-  }
-
-  getDescendingArrow() {
-    return cy.get('[data-cy="arrow-descending"]');
-  }
-
-  getAscendingArrow() {
-    return cy.get('[data-cy="arrow-ascending"]');
   }
 }

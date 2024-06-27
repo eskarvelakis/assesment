@@ -7,15 +7,15 @@ export class LoginPage {
     return cy.visit("/practice-test-login/");
   }
 
-  getTitleText(titletext) {
-    return cy.get("h2").contains(titletext);
+  getTitleText(titleText: string) {
+    return cy.get("h2").contains(titleText);
   }
 
-  fillUsername(username) {
+  fillUsername(username: string) {
     return cy.get(USERNAME_INPUT).type(username);
   }
 
-  fillPassword(password) {
+  fillPassword(password: string) {
     return cy.get(PASSWORD_INPUT).type(password);
   }
 

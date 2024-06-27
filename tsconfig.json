@@ -1,0 +1,19 @@
+{
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "/cypress"
+  ],
+  "compilerOptions": {
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "cypress",
+      "cypress-real-events",
+      "cy-verify-downloads"
+    ]
+  }
+}

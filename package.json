@@ -24,8 +24,6 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:run:tags:happypath": "npm run cypress:run -- --env tags=\"@happypath\"",
-    "cypress:run:tags:de": "npm run cypress:run -- --env tags=\"@DE\" || echo \"Oops, at least one cypress test failed!\"",
-    "cypress:run:tags:en": "npm run cypress:run -- --env tags=\"@EN\" || echo \"Oops, at least one cypress test failed!\"",
     "postcypress:run": "npm run clean:generated_features && node cypress/utils/cucumber-html-report.js",
     "merge:mochawesome": "mochawesome-merge  cypress/results/*.json -o cypress/results/output.json",
     "generate:mochawesome:report": "npx marge cypress/results/output.json -f report -o cypress/report/mochawesome",

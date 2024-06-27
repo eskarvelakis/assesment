@@ -1,6 +1,5 @@
 import {
   After,
-  DataTable,
   Given,
   Then,
   When,
@@ -27,17 +26,14 @@ Then("user is on {string} page", (pagetitle: string) => {
   cy.title().should("contain", pagetitle);
 });
 
-When("user fills username with {string}", (username: string) => {
-  login.fillUsername(username);
-});
-
-When("user fills password with {string}", (password: string) => {
-  login.fillPassword(password);
-});
-
-When("user clicks on login", () => {
-  login.submit().click();
-});
+When(
+  "user fills username: {string} and password: {string}",
+  (username: string, password: string) => {
+    login.fillUsername(username);
+    login.fillPassword(password);
+    login.submit().click();
+  },
+);
 
 After(() => {
   cy.clearCookies();

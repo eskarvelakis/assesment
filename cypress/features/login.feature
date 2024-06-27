@@ -5,11 +5,10 @@ Feature: Login Functionality
 
   @happypath @PM
   Scenario Outline: User authenticates with different credentials <username> / <pass>
-    When user fills username with "<username>"
-    And user fills password with "<pass>"
-    And user clicks on login
 
+    When user fills username: "<username>" and password: "<pass>"
     Then user is on "<page>" page
+    
     Examples:
       | username | pass        | page                   |
       | student  | Password123 | Logged In Successfully |

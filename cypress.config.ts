@@ -1,7 +1,6 @@
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import { defineConfig } from "cypress";
 
-const clipboardy = require("clipboardy");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
@@ -55,9 +54,6 @@ export default defineConfig({
         verifyDownloadTasks,
         isFileExist,
         findFiles,
-        getClipboard: () => {
-          return clipboardy.readSync();
-        },
       });
       return config;
     },

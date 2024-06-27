@@ -1,6 +1,6 @@
 {
-  "name": "trustcenter",
-  "version": "3.4.4-SNAPSHOT",
+  "name": "test",
+  "version": "1.0.0-SNAPSHOT",
   "scripts": {
     "clean:dist": "rimraf dist",
     "clean:coverage": "rimraf coverage",

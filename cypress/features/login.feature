@@ -8,7 +8,7 @@ Feature: Login Functionality
 
     When user fills username: "<username>" and password: "<pass>"
     Then user is on "<page>" page
-    
+
     Examples:
       | username | pass        | page                   |
       | student  | Password123 | Logged In Successfully |

@@ -1,25 +1,25 @@
-const USERNAME_INPUT = "#username";
-const PASSWORD_INPUT = "#password";
-const SUBMIT_BUTTON = "#submit";
+const USERNAME_INPUT = '#username'
+const PASSWORD_INPUT = '#password'
+const SUBMIT_BUTTON = '#submit'
 
 export class LoginPage {
-  navigateTo() {
-    return cy.visit("/practice-test-login/");
-  }
+	navigateTo() {
+		return cy.visit('/practice-test-login/')
+	}
 
-  getTitleText(titleText: string) {
-    return cy.get("h2").contains(titleText);
-  }
+	getTitleText(titleText: string) {
+		return cy.get('h2').contains(titleText)
+	}
 
-  fillUsername(username: string) {
-    return cy.get(USERNAME_INPUT).type(username);
-  }
+	fillUsername(username: string) {
+		return cy.get(USERNAME_INPUT).type(username)
+	}
 
-  fillPassword(password: string) {
-    return cy.get(PASSWORD_INPUT).type(password);
-  }
+	fillPassword(password: string) {
+		return cy.get(PASSWORD_INPUT).type(password)
+	}
 
-  submit() {
-    return cy.get(SUBMIT_BUTTON);
-  }
+	submit() {
+		return cy.get(SUBMIT_BUTTON)
+	}
 }

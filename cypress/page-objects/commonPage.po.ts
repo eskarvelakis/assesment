@@ -1,241 +1,157 @@
 export class CommonPage {
-  getPageBody() {
-    return cy.get("body");
-  }
+	getPageBody() {
+		return cy.get('body')
+	}
 
-  getPageHeader() {
-    return cy.get('[data-cy="page-header"]');
-  }
+	getPageHeader() {
+		return cy.get('[data-cy="page-header"]')
+	}
 
-  checkHeaderTitle(titlename: string) {
-    return cy.get('[data-testid="headline"]').contains(titlename);
-  }
+	checkHeaderTitle(titleName: string) {
+		return cy.get('[data-testid="headline"]').contains(titleName)
+	}
 
-  getSidepanelHeader() {
-    return cy.get('[data-cy="sidepanel-header"]');
-  }
+	checkTable() {
+		return cy.get('[data-testid="table"]')
+	}
 
-  checkTable() {
-    return cy.get('[data-testid="table"]');
-  }
+	getButton(buttonText: string) {
+		return cy.get('[data-testid="button"]').contains(buttonText, { timeout: 5000 })
+	}
 
-  getButton(buttontext: string) {
-    return cy
-      .get('[data-testid="button"]')
-      .contains(buttontext, { timeout: 5000 });
-  }
+	getLabel(labeltext: string) {
+		return cy.get('span').contains(labeltext)
+	}
 
-  getCancelBtn() {
-    return cy.get('[data-cy="button-cancel"]');
-  }
+	getDropdown() {
+		return cy.get('[data-testid="dropdown"]')
+	}
 
-  getGroupBtn() {
-    return cy.get('[data-cy="group-button"]', { timeout: 1000 });
-  }
+	getSearchDropdown(searchId: string) {
+		return cy.get(searchId, { includeShadowDom: true })
+	}
 
-  getSubmitBtn() {
-    return cy.get('[data-testid="submit-button"]');
-  }
+	selectOption(dropdownOption: string) {
+		return cy.get('[data-testid="dropdown-option"] > div').contains(dropdownOption)
+	}
 
-  getLabel(labeltext: string) {
-    return cy.get("span").contains(labeltext);
-  }
+	getCheckbox() {
+		return cy.get('[data-testid="checkbox"]', { timeout: 10000 })
+	}
 
-  getDropdown() {
-    return cy.get('[data-testid="dropdown"]');
-  }
+	getAllCheckbox() {
+		return cy.get('[data-cy="allCheckboxes"][data-testid="checkbox"]')
+	}
 
-  getSearchDropdown(searchid: string) {
-    return cy.get(searchid, { includeShadowDom: true });
-  }
+	getNavigationItem() {
+		return cy.get('[data-testid="navigation-item"]', { timeout: 10000 })
+	}
 
-  selectOption(dropdownoption: string) {
-    return cy
-      .get('[data-testid="dropdown-option"] > div')
-      .contains(dropdownoption);
-  }
+	getDropdownOption() {
+		return cy.get('[data-testid="dropdown-option"]')
+	}
 
-  getCheckbox() {
-    return cy.get('[data-testid="checkbox"]', { timeout: 10000 });
-  }
+	getMultiSelectOption() {
+		return cy.get('[data-testid="multiselect-option"]', {
+			includeShadowDom: true,
+		})
+	}
 
-  getAllCheckbox() {
-    return cy.get('[data-cy="allCheckboxes"][data-testid="checkbox"]');
-  }
+	getFooter() {
+		return cy.get('tc-footer')
+	}
 
-  getNavigationItem() {
-    return cy.get('[data-testid="navigation-item"]', { timeout: 10000 });
-  }
+	getLink(linkName: string) {
+		return cy.get('[data-testid="text"]').contains(linkName)
+	}
 
-  getDropdownOption() {
-    return cy.get('[data-testid="dropdown-option"]');
-  }
+	getTableHeader(labelName: string) {
+		return cy.get('[data-cy="column-header"]').contains(labelName)
+	}
 
-  getMultiSelectOption() {
-    return cy.get('[data-testid="multiselect-option"]', {
-      includeShadowDom: true,
-    });
-  }
+	filteredOutput(searchOutput: string) {
+		return cy
+			.get('[data-testid="table"]')
+			.wait(100)
+			.find('[data-testid="table-cell"]', { timeout: 5000 })
+			.filter(':contains("' + searchOutput + '")')
+	}
 
-  getFooter() {
-    return cy.get("tc-footer");
-  }
+	filteredTag(searchOutput: string) {
+		return cy
+			.get('[data-testid="table"]')
+			.wait(100)
+			.find('[data-testid="tag"]', { timeout: 5000 })
+			.filter(':contains("' + searchOutput + '")')
+	}
 
-  getLink(linkname: string) {
-    return cy.get('[data-testid="text"]').contains(linkname);
-  }
+	getConfirmDialog() {
+		return cy.get('[data-cy="confirm-dialog"]')
+	}
 
-  getTableHeader(labelname: string) {
-    return cy.get('[data-cy="column-header"]').contains(labelname);
-  }
+	getConfirmMessage() {
+		return cy.get('[data-testid="headline"]')
+	}
 
-  inputSearchItem(searchid: string) {
-    return cy.get(searchid);
-  }
+	getConfirmButton(buttontext: string) {
+		return cy.get('[data-cy="button-ok"]').contains(buttontext)
+	}
 
-  filteredOutput(searchoutput: string) {
-    return cy
-      .get('[data-testid="table"]')
-      .wait(100)
-      .find('[data-testid="table-cell"]', { timeout: 5000 })
-      .filter(':contains("' + searchoutput + '")');
-  }
+	getToastMsg() {
+		return cy.get('#toast-container')
+	}
 
-  filteredTag(searchoutput: string) {
-    return cy
-      .get('[data-testid="table"]')
-      .wait(100)
-      .find('[data-testid="tag"]', { timeout: 5000 })
-      .filter(':contains("' + searchoutput + '")');
-  }
+	getToastNotification() {
+		return cy.get('[data-cy="toast-notification"]')
+	}
 
-  getPaginationText() {
-    return cy.get('[data-cy="entries-counter"]');
-  }
+	getTab(tabText) {
+		return cy.get('[data-testid="tabs"]', { timeout: 5000 }).shadow().find(`[data-text="${tabText}"]`)
+	}
 
-  getPaginationElements() {
-    return cy.get('[data-cy="paginate-elements"]');
-  }
+	getTabContent() {
+		return cy.get('[data-testid="tabs"]', { includeShadowDom: true })
+	}
 
-  getPaginationInput() {
-    return cy.get('[data-cy="paginate-input"]');
-  }
+	getAccordion(tabName: string) {
+		return cy.get('[data-testid="accordion"]', { timeout: 50000 }).contains(tabName)
+	}
 
-  getSpinner() {
-    return cy.get('[data-cy="loading-spinner"]');
-  }
+	getInputField() {
+		return cy.get('[data-testid="input"]', { includeShadowDom: true })
+	}
 
-  getCloseBtn() {
-    return cy.get('[data-cy="close-icon"]');
-  }
+	getTCIcon() {
+		return cy.get('[data-cy="tc-icon"]')
+	}
 
-  getConfirmDialog() {
-    return cy.get('[data-cy="confirm-dialog"]');
-  }
+	getTooltip() {
+		return cy.get('[data-cy="tooltip-info"]', {
+			timeout: 10000,
+		})
+	}
 
-  getConfirmMessage() {
-    return cy.get('[data-testid="headline"]');
-  }
+	getTooltipContent() {
+		return cy.get('[data-cy="tooltip-content"]', { timeout: 2000 })
+	}
 
-  getConfirmButton(buttontext: string) {
-    return cy.get('[data-cy="button-ok"]').contains(buttontext);
-  }
+	getTooltipIcon() {
+		return cy.get('[data-cy="info-tooltip-icon"]')
+	}
 
-  getToastMsg() {
-    return cy.get("#toast-container");
-  }
+	getTooltipValue(tooltipValue: string) {
+		return cy.get('[data-testid="grid-row"][data-cy="' + tooltipValue + '"]')
+	}
 
-  getToastNotification() {
-    return cy.get('[data-cy="toast-notification"]');
-  }
+	getTooltipTag() {
+		return cy.get('[data-cy="tooltip-tag"]')
+	}
 
-  getThreeDotsBtn() {
-    return cy.get('[data-cy="account-state-action-dropdown-menu"]', {
-      timeout: 2000,
-    });
-  }
+	getNavigationTooltip(navigationtooltip: string) {
+		return cy.get('[data-testid="tooltip"][data-cy="' + navigationtooltip + '"]')
+	}
 
-  getTab(tabtext) {
-    return cy
-      .get('[data-testid="tabs"]', { timeout: 5000 })
-      .shadow()
-      .find(`[data-text="${tabtext}"]`);
-  }
-
-  getTabContent() {
-    return cy.get('[data-testid="tabs"]', { includeShadowDom: true });
-  }
-
-  getAccordion(tabname: string) {
-    return cy
-      .get('[data-testid="accordion"]', { timeout: 50000 })
-      .contains(tabname);
-  }
-
-  getNotification() {
-    return cy.get('[data-testid="notification"]', { includeShadowDom: true });
-  }
-
-  getIcon() {
-    return cy.get('[data-cy="selection-icon"]', { includeShadowDom: true });
-  }
-
-  getConfidentiality() {
-    return cy.get('[data-cy="confidentiality-notice"]');
-  }
-
-  getInputField() {
-    return cy.get('[data-testid="input"]', { includeShadowDom: true });
-  }
-
-  getTCIcon() {
-    return cy.get('[data-cy="tc-icon"]');
-  }
-
-  getTooltip() {
-    return cy.get('[data-cy="tooltip-info"]', {
-      timeout: 10000,
-    });
-  }
-
-  getTooltipContent() {
-    return cy.get('[data-cy="tooltip-content"]', { timeout: 2000 });
-  }
-
-  getTooltipIcon() {
-    return cy.get('[data-cy="info-tooltip-icon"]');
-  }
-
-  getTooltipValue(tooltipvalue: string) {
-    return cy.get('[data-testid="grid-row"][data-cy="' + tooltipvalue + '"]');
-  }
-
-  getTooltipTag() {
-    return cy.get('[data-cy="tooltip-tag"]');
-  }
-
-  getNavigationTooltip(navigationtooltip: string) {
-    return cy.get(
-      '[data-testid="tooltip"][data-cy="' + navigationtooltip + '"]',
-    );
-  }
-
-  getPageCounter() {
-    return cy.get('[data-cy="page-counter"]');
-  }
-
-  getResultsPerPage() {
-    return cy.get('[data-cy="results-per-page"]');
-  }
-
-  getNumberResults() {
-    return cy.get('[data-cy="number-results"]', { timeout: 2000 });
-  }
-
-  getSidepanelFooterBtn(buttontext: string) {
-    return cy
-      .get('[data-cy="sidepanel-footer"]')
-      .find('[data-testid="button"]')
-      .contains(buttontext);
-  }
+	getNumberResults() {
+		return cy.get('[data-cy="number-results"]', { timeout: 2000 })
+	}
 }
